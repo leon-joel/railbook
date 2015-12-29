@@ -1,0 +1,21 @@
+# アプリケーション独自設定はこのように別ファイルにまとめる
+# これをLoadする config/initializers/my_config.rb も作る
+
+COMMON: &COMMON
+  author: "YAMADA, Yoshihiro"
+  logo:
+    source: "http://www.wings.msn.to/image/wings.jpg"
+    width: 215
+    height: 67
+
+development:
+  hoge: "dev"
+  <<: *COMMON
+
+test:
+  hoge: "test"
+  <<: *COMMON
+
+production:
+  hoge: "pro"
+  <<: *COMMON
