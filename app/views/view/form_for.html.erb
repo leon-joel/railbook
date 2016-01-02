@@ -1,0 +1,11 @@
+<%= form_for(@book) do |f| %>
+    現在のモデルがブロック変数 f にセットされる
+  <div class="field">
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn, size: 25 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

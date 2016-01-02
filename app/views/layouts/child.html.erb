@@ -1,0 +1,12 @@
+<%# 親レイアウトに埋め込むcontentを定義 %>
+<% content_for :content do %>
+    <!-- child.html.erb -->
+<img src="http://www.wings.msn.to/image/wings.jpg" />
+<hr />
+<%# メインテンプレートの埋め込み %>
+<%= yield %>
+<hr />
+Copyright 1998-2013, YAMADA,Yoshihiro
+<% end %>
+<%# 親レイアウトを明示的に呼び出し %>
+<%= render template: 'layouts/application' %>

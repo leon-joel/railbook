@@ -1,0 +1,37 @@
+<%= form_for(@book) do |f| %>
+    色選択ボックス： ※IE11未対応（カラーコードが表示される）
+    <%= f.color_field :isbn %><br/>
+
+    日付入力ボックス： ※Firefox38, IE11未対応
+    <%= f.date_field :published %><br/>
+
+    時刻入力ボックス： ※Firefox38未対応, IE11未対応
+    <%= f.time_field :published %><br/>
+
+    日付時刻入力ボックス： ※Firefox38未対応, IE11未対応
+    <%= f.datetime_field :published %><br/>
+
+    月入力ボックス： ※Firefox38未対応, IE11未対応
+    <%= f.month_field :published %><br/>
+
+    週入力ボックス： ※Firefox38未対応, IE11未対応
+    <%= f.week_field :published %><br/>
+
+    メール入力ボックス：※FF38は入力チェックしている。IE11は未対応
+    <%= f.email_field :isbn, size: 25, maxlength: 30 %><br/>
+
+    数値入力ボックス： ※IE11スクロールボックスが表示されない
+    <%= f.number_field :price, min: 10, max: 10000, step: 10 %><br/>
+
+    スライダー：
+    <%= f.range_field :price, min: 10, max: 10000 %><br/>
+
+    検索ボックス：※Firefox38未対応, IE11未対応
+    <%= f.search_field :isbn, size: 10, maxlength: 15 %><br/>
+
+    電話番号入力ボックス：※Firefox38未対応, IE11未対応
+    <%= f.telephone_field :isbn, size: 15, maxlength: 20 %><br/>
+
+    URL入力ボックス：※FF38入力チェックしている。IE11未対応
+    <%= f.url_field :isbn, size: 10, maxlength: 15 %><br/>
+<% end %>

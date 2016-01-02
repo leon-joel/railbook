@@ -1,0 +1,25 @@
+<div id="info">
+  <%# 部分テンプレート views/books/_book.html.erb を指定している(p.180) %>
+  <%# さらに、テンプレートに引数を渡している %>
+<%
+=begin
+%>
+  <%= render 'books/book', book: @book, type: :details %>
+
+<%
+=end
+%>
+
+  <%# type未指定の場合でもtype.nil?とならないなので明示的に :details とは異なる値を渡す →これによりImageが表示されなくなる  %>
+<%
+=begin
+%>
+  <%= render 'books/book', book: @book, type: :list %>
+
+<%
+=end
+%>
+
+  <%# 部分パラメータを明示的に指定しなくても、モデルを元に対応する部分テンプレートを検索して表示してくれる。部分テンプレートに適切な名前付けをしていれば。 %>
+  <%= render @book, type: :details %>
+</div>

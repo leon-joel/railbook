@@ -1,10 +1,23 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
+  # コントローラー単位でLayoutを指定する場合はこれ(p.171)
+  # layout 'product'
+
+  # 指定されていない場合は, views/layouts/コントローラー名.html.erbを採用する。
+  # それも存在しない場合は、views/layouts/application.html.erb が使用される。
+
   # GET /books
   # GET /books.json
   def index
     @books = Book.all
+
+    # 固有のタイトルをLayoutに与える ※与えない場合はデフォルトのタイトルが使用される（ようにLayout側で工夫されている）p.171
+    @title = "著書一覧"
+
+    # アクション単位でLayoutを指定する場合はこれ（p.171）
+    # render layout: 'sub'
+    # Book.allなどの処理より下（おそらくメソッドの最後）に書かないとだめ。@booksがnilになってしまう。
   end
 
   # GET /books/1

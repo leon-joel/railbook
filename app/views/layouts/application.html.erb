@@ -1,14 +1,28 @@
 <!DOCTYPE html>
+<!-- application.html.erb -->
 <html>
 <head>
-  <title>Railbook</title>
+  <!--<title>Railbook</title>-->
+  <title><%= @title ? @title : 'Rails入門' %></title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<!--contentがあればそれを埋め込み、なければデフォルトのコンテント :layout を埋め込む-->
+<%= content_for?(:content) ? yield(:content) : yield %>
+
+<%
+=begin
+%>
+<!--どうでもいいけど、yieldをHTMLコメントで囲んでいても本体コンテントが埋め込まれるようだ。だからbegin-endで囲んでおく-->
+<!--<%= yield %>-->
+<%
+=end
+%>
+
 
 </body>
 </html>

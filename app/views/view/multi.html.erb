@@ -1,0 +1,13 @@
+<!--複数コンテント対応のレイアウト layout.html.erb 用のView-->
+
+<!--カスタムメニューコンテント ※これが存在していなくても空で表示されるだけ-->
+<% content_for :extend_menu do %>
+    ［<%= link_to '関連情報', action: :relation %>］
+    ［<%= link_to 'ダウンロード', action: :download %>］
+    ［<%= link_to 'アンケート', action: :quest %>］
+<% end %>
+
+<!--本体コンテント-->
+<div id="main">
+  ...コンテンツ本体...
+</div>

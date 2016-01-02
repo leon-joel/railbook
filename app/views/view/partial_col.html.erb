@@ -1,0 +1,28 @@
+<!-- collection要素に部分テンプレートを適用する（p.184） -->
+<!-- books/index.html.erb のように each で回してもいいが、これの方が再利用性も高くていいかも -->
+<div id="list">
+<%
+=begin
+%>
+  <!-- partialパラメータを省略できない -->
+  <!-- 部分テンプレートへの引数は localsで渡す -->
+  <%= render partial: 'books/book', collection: @books, locals: {type: :details} %>
+<%
+=end
+%>
+<%
+=begin
+%>
+  <!-- 部分テンプレートの指定は省略可能 -->
+  <!-- また、各オブジェクトを元に部分テンプレートを検索してくれるらしい。-->
+  <!-- collection内に例えばMagazineクラスのインスタンスがあって、その部分テンプレートが存在していれば、そのテンプレートで表示してくれる。 -->
+  <%= render @books, locals: {type: :details} %>
+<%
+=end
+%>
+  <!-- 要素間の区切りテンプレートも指定できる。※eachでぐるぐる回す場合は結構めんどくさい処理になる -->
+  <!-- 但し、@books指定による上の記述では spacer_templateは使えなかった -->
+  <%= render partial: 'books/book', collection: @books, spacer_template: 'separator',
+             locals: {type: :details} %>
+
+</div>
