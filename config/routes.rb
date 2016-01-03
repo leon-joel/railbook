@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :members
+
+  get 'record/none'
+
   resources :fan_comments
 
   resources :reviews
