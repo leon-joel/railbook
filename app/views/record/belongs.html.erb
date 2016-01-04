@@ -1,0 +1,4 @@
+<%# review.bookにアクセスしたときにBookの検索が走る。bookへの2回目のアクセス時には検索は走らないようだ。 %>
+<h2>「<%= @review.book.title %>」（出版社: <%= @review.book.publish %>）のレビュー</h2>
+<hr/>
+<p><%= @review.body %> (<%= @review.updated_at %>)</p>

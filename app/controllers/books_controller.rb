@@ -41,6 +41,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
+        # 検証と保存（ISNERT文の実行＆コミット）に成功した場合
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else

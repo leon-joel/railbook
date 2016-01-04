@@ -1,0 +1,8 @@
+<h2>「<%= @book.title %>」の著者情報</h2>
+<hr/>
+<ul>
+  <%# authorsにアクセスしたときに、関連テーブル author_book を経由（JOIN）してauthorsテーブルを検索する %>
+  <% @book.authors.each do |author| %>
+      <li><%= author.name %>（<%= author.birth %> | <%= author.address %>）</li>
+  <% end %>
+</ul>

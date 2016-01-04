@@ -73,4 +73,48 @@ class RecordController < ApplicationController
   rescue => e
     render text: e.message
   end
+
+  # 検索フォームを表示するためのアクション
+  def keywd
+    @search = SearchKeyword.new
+  end
+
+  # 検索ボタンがクリックされたときに呼び出されるアクション
+  def keywd_process
+    # 入力値を元にモデルオブジェクトを生成
+    @search = SearchKeyword.new(params[:search_keyword])
+
+    # 検証
+    if @search.valid?
+      render text: @search.keyword
+    else
+      render text: @search.errors.full_messages[0]
+    end
+  end
+
+  # belongs_to アソシエーションの確認
+  def belongs
+    @review = Review.find(3)  # idが3のReviewを取得
+  end
+
+  def has_many
+    @book = Book.find_by(isbn: '978-4-7741-5878-5')
+  end
+
+  def hasone
+    @user = User.find_by(username: 'yyamada')
+  end
+
+  def has_and_belongs
+    @book = Book.find_by(isbn: '978-4-7741-5611-8')
+  end
+
+  def has_many_through
+    @user = User.find_by(username: 'isatou')
+  end
+
+  def cache_counter
+    @user = User.find(1)
+    render text: @user.reviews.size
+  end
 end

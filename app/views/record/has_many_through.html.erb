@@ -1,0 +1,15 @@
+<ul>
+  <li>ユーザー名： <%= @user.username %></li>
+  <li>メールアドレス： <%= @user.email %></li>
+
+  <% unless @user.books.empty? %>
+  <ui>レビューした書籍
+    <ul>
+      <% @user.books.each do |book| %>
+      <li><%= book.title %></li>
+      <% end %>
+
+    </ul>
+  </ui>
+  <% end %>
+</ul>
