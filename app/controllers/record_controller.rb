@@ -115,6 +115,6 @@ class RecordController < ApplicationController
 
   def cache_counter
     @user = User.find(1)
-    render text: @user.reviews.size
+    render text: @user.reviews.size   # キャッシュカウンターを使用しているので、review.sizeではDBアクセスが発生しない
   end
 end
